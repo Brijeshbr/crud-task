@@ -1,0 +1,89 @@
+<div class="container">
+  <form [formGroup]="taskForm">
+    <div class="row">
+      <div class="title-input">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Title" formControlName="title" />
+          <mat-error
+            *ngIf="
+              taskForm.controls['title'].dirty &&
+              taskForm.hasError('required', 'title')
+            "
+            >Title is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="desc-input">
+        <mat-form-field appearance="outline">
+          <textarea
+            matInput
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+          <mat-error
+            *ngIf="
+              taskForm.controls['description'].dirty &&
+              taskForm.hasError('required', 'description')
+            "
+            >Description is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="title-input">
+        <mat-form-field appearance="outline">
+          <mat-label>Due Date</mat-label>
+          <input formControlName="dueDate" matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="title-input">
+      <mat-form-field>
+        <mat-select placeholder="Status" formControlName="status">
+          <mat-option value="pending">Pending</mat-option>
+          <mat-option value="completed">Completed</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            taskForm.controls['status'].dirty &&
+            taskForm.hasError('required', 'status')
+          "
+          >Status is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="save-btn">
+      <button
+        *ngIf="!isUpdateActive"
+        (click)="submit()"
+        mat-raised-button
+        color="accent"
+      >
+        Submit
+      </button>
+      <button
+        *ngIf="isUpdateActive"
+        (click)="update()"
+        mat-raised-button
+        color="accent"
+      >
+        Update
+      </button>
+      <button
+        mat-raised-button
+        class="cancel-btn"
+        color="accent"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

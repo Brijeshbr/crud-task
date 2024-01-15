@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "title": "Angular test",
+      "description": "testing the the angular task for the vaet own project",
+      "dueDate": "2024-01-25T18:30:00.000Z",
+      "status": "pending",
+      "id": 1
+    },
+    {
+      "title": "Angular validation",
+      "description": "the filed has to validtad through the entire section",
+      "dueDate": "2024-01-18T18:30:00.000Z",
+      "status": "completed",
+      "id": 2
+    },
+    {
+      "title": "Angular routing",
+      "description": "router outet hold the many tasks that are in the ",
+      "dueDate": "2024-01-25T18:30:00.000Z",
+      "status": "pending",
+      "id": 3
+    }
+  ]
+}
