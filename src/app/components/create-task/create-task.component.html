@@ -6,11 +6,12 @@
           <input matInput placeholder="Title" formControlName="title" />
           <mat-error
             *ngIf="
-              taskForm.controls['title'].dirty &&
-              taskForm.hasError('required', 'title')
+              taskForm.get('title')!.dirty &&
+              taskForm.get('title')!.hasError('required')
             "
-            >Title is required</mat-error
           >
+            Title is required
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="desc-input">
@@ -22,11 +23,12 @@
           ></textarea>
           <mat-error
             *ngIf="
-              taskForm.controls['description'].dirty &&
-              taskForm.hasError('required', 'description')
+              taskForm.get('description')!.dirty &&
+              taskForm.get('description')!.hasError('required')
             "
-            >Description is required</mat-error
           >
+            Description is required
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -40,6 +42,14 @@
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error
+            *ngIf="
+              taskForm.get('dueDate')!.dirty &&
+              taskForm.get('dueDate')!.hasError('required')
+            "
+          >
+            Due Date is required
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
@@ -52,11 +62,12 @@
         </mat-select>
         <mat-error
           *ngIf="
-            taskForm.controls['status'].dirty &&
-            taskForm.hasError('required', 'status')
+            taskForm.get('status')!.dirty &&
+            taskForm.get('status')!.hasError('required')
           "
-          >Status is required</mat-error
         >
+          Status is required
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="save-btn">

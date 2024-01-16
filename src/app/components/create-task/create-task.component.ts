@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -18,17 +19,18 @@ export class CreateTaskComponent {
     private fb: FormBuilder,
     private taskSvc: TaskService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
+    private activatedRoute: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit() {
     this.taskForm = this.fb.group({
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       dueDate: [''],
       status: ['', [Validators.required]],
     });
-  }
 
-  ngOnInit() {
     this.activatedRoute.params.subscribe((val) => {
       this.userIdToUpdate = val['id'];
       if (this.userIdToUpdate) {
@@ -47,10 +49,15 @@ export class CreateTaskComponent {
 
   submit() {
     console.log(this.taskForm.value);
-    this.taskSvc.addTask(this.taskForm.value).subscribe((res) => {
-      this.router.navigate(['list']);
-      this.taskForm.reset();
-    });
+    if (this.taskForm.valid) {
+      this.taskSvc.addTask(this.taskForm.value).subscribe((res) => {
+        this.toastr.success(' Task added successfully', 'ADD_TASK', {
+          timeOut: 3000,
+        });
+        this.router.navigate(['list']);
+        this.taskForm.reset();
+      });
+    }
   }
 
   fillFormToUpdate(user: User) {
@@ -66,6 +73,9 @@ export class CreateTaskComponent {
     this.taskSvc
       .updateTask(this.taskForm.value, this.userIdToUpdate)
       .subscribe((res) => {
+        this.toastr.success(' Task updated successfully', 'UPDATE_TASK', {
+          timeOut: 3000,
+        });
         this.router.navigate(['list']);
         this.taskForm.reset();
       });

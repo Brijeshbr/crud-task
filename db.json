@@ -1,32 +1,46 @@
 {
   "tasks": [
     {
-      "title": "Angular test",
-      "description": "testing the the angular task for the vaet own project",
-      "dueDate": "2024-01-25T18:30:00.000Z",
+      "title": "Angular validation ",
+      "description": "the filed has to validtad through the entire section",
+      "dueDate": "2024-01-18T18:30:00.000Z",
       "status": "completed",
       "id": 1
     },
     {
-      "title": "Angular validation",
-      "description": "the filed has to validtad through the entire section",
-      "dueDate": "2024-01-18T18:30:00.000Z",
-      "status": "completed",
+      "title": "Angular routing and navigation",
+      "description": "Set up Angular routing to navigate between different views or components  ",
+      "dueDate": "2024-01-25T18:30:00.000Z",
+      "status": "pending",
       "id": 2
     },
     {
-      "title": "Angular routing",
-      "description": "router outet hold the many tasks that are in the ",
+      "title": "Authentication and Authorization",
+      "description": " Integrate user authentication using Angular services, and implement authorization checks to control access",
       "dueDate": "2024-01-25T18:30:00.000Z",
       "status": "pending",
       "id": 3
     },
     {
-      "title": "Angular test",
-      "description": "wwfpwwcncpw",
-      "dueDate": "2024-01-18T18:30:00.000Z",
-      "status": "pending",
+      "title": "Form Handling and Validation",
+      "description": " Implement forms using Angular's reactive forms or template-driven forms,",
+      "dueDate": "2024-01-15T18:30:00.000Z",
+      "status": "completed",
       "id": 4
+    },
+    {
+      "title": "HTTP Requests and API Integration",
+      "description": "Utilize Angular's HttpClient module to make HTTP requests and integrate with external APIs, ",
+      "dueDate": "2024-01-29T18:30:00.000Z",
+      "status": "completed",
+      "id": 5
+    },
+    {
+      "title": "Implement Two-Way Data Binding",
+      "description": "Use Angular's ngModel directive to achieve two-way data binding between a component and its template",
+      "dueDate": "2024-02-07T18:30:00.000Z",
+      "status": "pending",
+      "id": 7
     }
   ]
 }

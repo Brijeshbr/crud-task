@@ -25,9 +25,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
+import { NgConfirmModule } from 'ng-confirm-box';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [AppComponent, CreateTaskComponent, TaskListComponent, TaskDetailComponent],
+  declarations: [
+    AppComponent,
+    CreateTaskComponent,
+    TaskListComponent,
+    TaskDetailComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,6 +58,9 @@ import { TaskDetailComponent } from './components/task-detail/task-detail.compon
     MatCardModule,
     MatListModule,
     MatChipsModule,
+
+    NgConfirmModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
