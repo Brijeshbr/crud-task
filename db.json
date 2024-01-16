@@ -2,7 +2,7 @@
   "tasks": [
     {
       "title": "Angular validation ",
-      "description": "the filed has to validtad through the entire section",
+      "description": "the filed has to validated through the entire section",
       "dueDate": "2024-01-18T18:30:00.000Z",
       "status": "completed",
       "id": 1
@@ -16,7 +16,7 @@
     },
     {
       "title": "Authentication and Authorization",
-      "description": " Integrate user authentication using Angular services, and implement authorization checks to control access",
+      "description": " Integrate user authentication using Angular services, and implement authorization ",
       "dueDate": "2024-01-25T18:30:00.000Z",
       "status": "pending",
       "id": 3
@@ -30,17 +30,24 @@
     },
     {
       "title": "HTTP Requests and API Integration",
-      "description": "Utilize Angular's HttpClient module to make HTTP requests and integrate with external APIs, ",
+      "description": "Utilize Angular's HttpClient module to make HTTP requests and integratation ",
       "dueDate": "2024-01-29T18:30:00.000Z",
       "status": "completed",
       "id": 5
     },
     {
       "title": "Implement Two-Way Data Binding",
-      "description": "Use Angular's ngModel directive to achieve two-way data binding between a component and its template",
+      "description": "Use Angular's ngModel to achieve two-way data binding between component & template ",
       "dueDate": "2024-02-07T18:30:00.000Z",
       "status": "pending",
       "id": 7
+    },
+    {
+      "title": "Optimizing Performance",
+      "description": " Identify and implement performance optimization techniques in your Angular application ",
+      "dueDate": "2024-02-01T18:30:00.000Z",
+      "status": "pending",
+      "id": 8
     }
   ]
 }

@@ -1,5 +1,5 @@
 .example-card {
-    max-width: 800px;
+    max-width: 900px;
     display: block;
     margin: 0 auto;
     margin-top: 2em;
@@ -9,4 +9,10 @@ mat-icon.mat-card-avatar {
     width: 40px;
     height: 40px;
     font-size: 40px;
+}
+
+.mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

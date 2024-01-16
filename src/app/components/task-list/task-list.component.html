@@ -39,22 +39,26 @@
           [routerLink]="['/detail', row.id]"
           class="mx-2"
           color="warn"
+          matTooltip="View"
         >
-          <mat-icon matSuffix>visibility</mat-icon>
+          <mat-icon>visibility</mat-icon>
         </button>
         <button
           mat-icon-button
           (click)="editTask(row.id)"
           class="mx-2"
           color="accent"
+          matTooltip="Edit_Task"
         >
-          <mat-icon aria-label="Example edit icon" fontIcon="edit"></mat-icon>
+          <mat-icon>edit</mat-icon>
         </button>
-        <button (click)="deleteTask(row.id)" mat-icon-button color="primary">
-          <mat-icon
-            aria-label="Example delete icon"
-            fontIcon="delete"
-          ></mat-icon>
+        <button
+          (click)="deleteTask(row.id)"
+          matTooltip="Delete_Task"
+          mat-icon-button
+          color="primary"
+        >
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

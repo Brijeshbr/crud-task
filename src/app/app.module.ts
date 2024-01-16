@@ -20,6 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
@@ -58,6 +59,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     MatListModule,
     MatChipsModule,
+    MatTooltipModule,
 
     NgConfirmModule,
     ToastrModule.forRoot(),

@@ -26,6 +26,7 @@ export class TaskDetailComponent {
   fetchUserDetails(userId: number) {
     this.tasksvc.getTaskId(userId).subscribe({
       next: (res) => {
+        console.log(res);
         this.userDetails = res;
       },
       error: (err) => {
