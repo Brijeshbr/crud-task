@@ -1,13 +1,11 @@
 <div class="main-body">
-  <mat-form-field>
+  <mat-form-field class="search">
     <mat-label>Filter</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="Ex. Mia"
-      #input
-    />
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input />
   </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
     <!-- ID Column -->
     <ng-container matColumnDef="id">
@@ -47,18 +45,23 @@
           [routerLink]="['/detail', row.id]"
           class="mx-2"
           color="warn"
-        ></button>
+        >
+          <mat-icon matSuffix>visibility</mat-icon>
+        </button>
         <button
           mat-icon-button
           (click)="editTask(row.id)"
           class="mx-2"
           color="accent"
-        ></button>
-        <button
-          (click)="deleteTask(row.id)"
-          mat-icon-button
-          color="primary"
-        ></button>
+        >
+          <mat-icon aria-label="Example edit icon" fontIcon="edit"></mat-icon>
+        </button>
+        <button (click)="deleteTask(row.id)" mat-icon-button color="primary">
+          <mat-icon
+            aria-label="Example delete icon"
+            fontIcon="delete"
+          ></mat-icon>
+        </button>
       </td>
     </ng-container>
 

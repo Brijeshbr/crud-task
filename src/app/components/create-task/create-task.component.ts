@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class CreateTaskComponent {
   constructor(
     private fb: FormBuilder,
     private taskSvc: TaskService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.taskForm = this.fb.group({
       title: ['', [Validators.required]],
@@ -26,13 +28,37 @@ export class CreateTaskComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((val) => {
+      this.userIdToUpdate = val['id'];
+      if (this.userIdToUpdate) {
+        this.isUpdateActive = true;
+        this.taskSvc.getTaskId(this.userIdToUpdate).subscribe({
+          next: (res) => {
+            this.fillFormToUpdate(res);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+      }
+    });
+  }
 
   submit() {
     console.log(this.taskForm.value);
     this.taskSvc.addTask(this.taskForm.value).subscribe((res) => {
       this.router.navigate(['list']);
       this.taskForm.reset();
+    });
+  }
+
+  fillFormToUpdate(user: User) {
+    this.taskForm.setValue({
+      title: user.title,
+      description: user.description,
+      dueDate: user.dueDate,
+      status: user.status,
     });
   }
 

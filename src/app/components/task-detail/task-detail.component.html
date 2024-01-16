@@ -1,1 +1,30 @@
-<p>task-detail works!</p>
+<mat-card class="example-card text-center">
+  <mat-card-header class="justify-content-center">
+    <mat-icon mat-card-avatar>task_alt</mat-icon>
+    <mat-card-title>{{ userDetails.title }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <div matLine>
+          Description :
+          <button mat-button>{{ userDetails.description }}</button>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div matLine>
+          Due Date :
+          <button mat-button>{{ userDetails.dueDate | date }}</button>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>
+          Status :
+          <button mat-button>{{ userDetails.status }}</button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -5,7 +5,7 @@ import { TaskDetailComponent } from './components/task-detail/task-detail.compon
 import { TaskListComponent } from './components/task-list/task-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'create' },
+  { path: '', pathMatch: 'full', redirectTo: 'list' },
   { path: 'create', component: CreateTaskComponent },
   { path: 'update/:id', component: CreateTaskComponent },
   { path: 'detail/:id', component: TaskDetailComponent },
