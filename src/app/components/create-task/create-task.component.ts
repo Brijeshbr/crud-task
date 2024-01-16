@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/models/task.model';
+import { Task } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class CreateTaskComponent {
   taskForm!: FormGroup;
-  private userIdToUpdate!: number;
+  private taskIdToUpdate!: number;
   public isUpdateActive: boolean = false;
 
   constructor(
@@ -32,10 +32,10 @@ export class CreateTaskComponent {
     });
 
     this.activatedRoute.params.subscribe((val) => {
-      this.userIdToUpdate = val['id'];
-      if (this.userIdToUpdate) {
+      this.taskIdToUpdate = val['id'];
+      if (this.taskIdToUpdate) {
         this.isUpdateActive = true;
-        this.taskSvc.getTaskId(this.userIdToUpdate).subscribe({
+        this.taskSvc.getTaskId(this.taskIdToUpdate).subscribe({
           next: (res) => {
             this.fillFormToUpdate(res);
           },
@@ -48,7 +48,6 @@ export class CreateTaskComponent {
   }
 
   submit() {
-    console.log(this.taskForm.value);
     if (this.taskForm.valid) {
       this.taskSvc.addTask(this.taskForm.value).subscribe((res) => {
         this.toastr.success(' Task added successfully', 'ADD_TASK', {
@@ -60,7 +59,7 @@ export class CreateTaskComponent {
     }
   }
 
-  fillFormToUpdate(user: User) {
+  fillFormToUpdate(user: Task) {
     this.taskForm.setValue({
       title: user.title,
       description: user.description,
@@ -71,7 +70,7 @@ export class CreateTaskComponent {
 
   update() {
     this.taskSvc
-      .updateTask(this.taskForm.value, this.userIdToUpdate)
+      .updateTask(this.taskForm.value, this.taskIdToUpdate)
       .subscribe((res) => {
         this.toastr.success(' Task updated successfully', 'UPDATE_TASK', {
           timeOut: 3000,

@@ -3,8 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { NgConfirmService } from 'ng-confirm-box';
-import { User } from 'src/app/models/task.model';
+import { Task } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
 import { ToastrService } from 'ngx-toastr';
 import * as alertify from 'alertifyjs';
@@ -16,7 +15,7 @@ import * as alertify from 'alertifyjs';
 })
 export class TaskListComponent {
   dataSource!: MatTableDataSource<any>;
-  public users!: User[];
+  public tasks!: Task[];
   displayedColumns: string[] = ['id', 'title', 'dueDate', 'status', 'action'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,7 +23,6 @@ export class TaskListComponent {
 
   constructor(
     private router: Router,
-    private confirmService: NgConfirmService,
     private taskSvc: TaskService,
     private toastr: ToastrService
   ) {}
@@ -36,8 +34,7 @@ export class TaskListComponent {
   getTaskList() {
     this.taskSvc.getTaskList().subscribe({
       next: (data) => {
-        console.log(data);
-        this.users = data;
+        this.tasks = data;
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

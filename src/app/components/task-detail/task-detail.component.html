@@ -1,8 +1,8 @@
 <mat-card class="example-card text-center">
   <mat-card-header class="justify-content-center">
     <mat-icon mat-card-avatar>task_alt</mat-icon>
-    <ng-container *ngIf="userDetails">
-      <mat-card-title>{{ userDetails.title }}</mat-card-title>
+    <ng-container *ngIf="taskDetails">
+      <mat-card-title>{{ taskDetails.title }}</mat-card-title>
     </ng-container>
   </mat-card-header>
 
@@ -11,9 +11,9 @@
       <mat-list-item>
         <div matLine>
           Description :
-          <ng-container *ngIf="userDetails && userDetails.description">
+          <ng-container *ngIf="taskDetails && taskDetails.description">
             <button mat-button>
-              {{ userDetails.description }}
+              {{ taskDetails.description }}
             </button>
           </ng-container>
         </div>
@@ -22,9 +22,9 @@
       <mat-list-item>
         <div matLine>
           Due Date :
-          <ng-container *ngIf="userDetails">
+          <ng-container *ngIf="taskDetails">
             <button mat-button>
-              {{ userDetails.dueDate | date }}
+              {{ taskDetails.dueDate | date }}
             </button>
           </ng-container>
         </div>
@@ -32,9 +32,9 @@
       <mat-list-item>
         <div matLine>
           Status :
-          <ng-container *ngIf="userDetails">
+          <ng-container *ngIf="taskDetails">
             <button mat-button>
-              {{ userDetails.status }}
+              {{ taskDetails.status }}
             </button>
           </ng-container>
         </div>

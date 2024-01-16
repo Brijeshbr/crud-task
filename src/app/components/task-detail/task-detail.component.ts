@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/models/task.model';
+import { Task } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task-detail.component.scss'],
 })
 export class TaskDetailComponent {
-  userId!: number;
-  userDetails!: User;
+  taskId!: number;
+  taskDetails!: Task;
   constructor(
     private activatedRoute: ActivatedRoute,
     private tasksvc: TaskService
@@ -18,16 +18,15 @@ export class TaskDetailComponent {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((val) => {
-      this.userId = val['id'];
-      this.fetchUserDetails(this.userId);
+      this.taskId = val['id'];
+      this.fetchUserDetails(this.taskId);
     });
   }
 
   fetchUserDetails(userId: number) {
     this.tasksvc.getTaskId(userId).subscribe({
       next: (res) => {
-        console.log(res);
-        this.userDetails = res;
+        this.taskDetails = res;
       },
       error: (err) => {
         console.log(err);
